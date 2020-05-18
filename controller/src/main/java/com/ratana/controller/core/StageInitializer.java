@@ -48,45 +48,44 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         Stage stage = stageReadyEvent.getStage();
         stage.setTitle(title);
         Scene scene = new Scene(fxWeaver.loadView(HomeController.class));
-        System.out.println(Security.MD5(Security.MD5(Security.MD5("client_01"))));
-        System.out.println(Security.MD5(Security.MD5(Security.MD5("ftp"))));
-        // create content
-        BorderPane content = new BorderPane();
 
-        // at the top two buttons
-        HBox hbox = new HBox();
-        hbox.setPadding(new Insets(5, 5, 5, 5));
-        hbox.setSpacing(5);
-
-        Button buttonEnglish = I18N.buttonForKey("button.english");
-        buttonEnglish.setOnAction((evt) -> {
-            switchLanguage(Locale.ENGLISH);
-            try {
-                FTPs ftp = new FTPs(ftpHost, ftpUser, ftpPassword);
-//                ftp.uploadFile("C:\\Users\\Ratana\\Pictures\\Screenshots\\Screenshot (1).png", "Screenshot (1).png", ftpDirectory);
-                ftp.deleteFile("/images/Screenshot (1).png");
-                ftp.disconnect();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        });
-        hbox.getChildren().add(buttonEnglish);
-
-        Button buttonGerman = I18N.buttonForKey("button.german");
-        buttonGerman.setOnAction((evt) -> switchLanguage(new Locale("kh")));
-        hbox.getChildren().add(buttonGerman);
-
-        content.setTop(hbox);
-
-        // a label to display the number of changes, recalculating the text on every change
-        final Label label = I18N.labelForValue(() -> I18N.get("label.numSwitches", numSwitches));
-        content.setBottom(label);
-
-        stage.setScene(new Scene(content, 400, 200));
-//        stage.show();
-//        stage.setScene(scene);
-//        stage.setMaximized(true);
+//        System.out.println(Security.MD5(Security.MD5(Security.MD5("client_01"))));
+//        System.out.println(Security.MD5(Security.MD5(Security.MD5("ftp"))));
+//        // create content
+//        BorderPane content = new BorderPane();
+//
+//        // at the top two buttons
+//        HBox hbox = new HBox();
+//        hbox.setPadding(new Insets(5, 5, 5, 5));
+//        hbox.setSpacing(5);
+//
+//        Button buttonEnglish = I18N.buttonForKey("button.english");
+//        buttonEnglish.setOnAction((evt) -> {
+//            switchLanguage(Locale.ENGLISH);
+////            try {
+////                FTPs ftp = new FTPs(ftpHost, ftpUser, ftpPassword);
+//////                ftp.uploadFile("C:\\Users\\Ratana\\Pictures\\Screenshots\\Screenshot (1).png", "Screenshot (1).png", ftpDirectory);
+////                ftp.deleteFile("/images/Screenshot (1).png");
+////                ftp.disconnect();
+////            } catch (Exception e) {
+////                e.printStackTrace();
+////            }
+//
+//        });
+//        hbox.getChildren().add(buttonEnglish);
+//
+//        Button buttonGerman = I18N.buttonForKey("button.german");
+//        buttonGerman.setOnAction((evt) -> switchLanguage(new Locale("kh")));
+//        hbox.getChildren().add(buttonGerman);
+//
+//        content.setTop(hbox);
+//
+//        // a label to display the number of changes, recalculating the text on every change
+//        final Label label = I18N.labelForValue(() -> I18N.get("label.numSwitches", numSwitches));
+//        content.setBottom(label);
+        scene.getStylesheets().add("css/style.css");
+        stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
