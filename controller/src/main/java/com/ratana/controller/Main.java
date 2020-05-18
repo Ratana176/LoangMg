@@ -34,6 +34,7 @@ public class Main {
     public static void main(String[] args) {
             Application.launch(LoanApplication.class, args);
     }
+
     @Bean
     public FxWeaver fxWeaver(ConfigurableApplicationContext applicationContext) {
         return new SpringFxWeaver(applicationContext);
