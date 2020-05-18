@@ -34,7 +34,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     private String ftpPassword;
     @Value("${ftp.host}")
     private String ftpHost;
-    @Value("${ftp.directory.images}")
+    @Value("${ftp.directory}")
     private String ftpDirectory;
 
     @Autowired
@@ -63,9 +63,9 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
             switchLanguage(Locale.ENGLISH);
             try {
                 FTPs ftp = new FTPs(ftpHost, ftpUser, ftpPassword);
-//                ftpUploaderController.uploadFile("C:\\Users\\Ratana\\Pictures\\Screenshots\\Screenshot (1).png", "Screenshot (1).png", ftpDirectory);
+//                ftp.uploadFile("C:\\Users\\Ratana\\Pictures\\Screenshots\\Screenshot (1).png", "Screenshot (1).png", ftpDirectory);
                 ftp.deleteFile("/images/Screenshot (1).png");
-//                ftpUploaderController.disconnect();
+                ftp.disconnect();
             } catch (Exception e) {
                 e.printStackTrace();
             }
