@@ -22,6 +22,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <start-class>com.ratana.controller.Main</start-class>
     </properties>
 
     <dependencies>
@@ -45,6 +46,11 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>8.0.9</version>
         </dependency>
     </dependencies>
 
