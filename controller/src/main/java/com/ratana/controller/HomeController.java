@@ -18,16 +18,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HomeController {
 
-    @FXML
-    private MenuButton btnFileMenu;
-    @FXML
-    private BorderPane mainCentBody;
 
     @FXML
     public void initialize() {
         System.out.println("Initialize on Main window");
-        System.out.println(btnFileMenu);
-        btnFileMenu.setText("test");
     }
 
     public HomeController() {

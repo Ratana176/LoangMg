@@ -85,7 +85,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
 //        content.setBottom(label);
         scene.getStylesheets().add("css/style.css");
         stage.setScene(scene);
-        stage.setMaximized(true);
+//        stage.setMaximized(true);
         stage.show();
     }
 
